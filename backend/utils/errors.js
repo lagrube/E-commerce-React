@@ -1,0 +1,25 @@
+module.exports.signupErrors = (err, res) => {
+  let errors = { pseudo: "", email: "", password: "" };
+
+  if (err.message.includes("pseudo")) errors.pseudo = "Pseudo incorrect !";
+  if (err.message.includes("email")) errors.email = "Email incorrect !";
+  if (err.message.includes("password"))
+    errors.password = "Le mot de passe doit contenir 6 caractères minimum !";
+
+  if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("email"))
+    errors.email = "Email déja utilisé !";
+  if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("pseudo"))
+    errors.pseudo = "Pseudo déja utilisé !";
+
+  return errors;
+};
+
+module.exports.signinErrors = (err, res) => {
+  let errors = { email: "", password: "" };
+
+  if (err.message.includes("email")) errors.email = "Email incorrect !";
+  if (err.message.includes("password"))
+    errors.password = "Mot de passe incorrect !";
+
+  return errors;
+};
