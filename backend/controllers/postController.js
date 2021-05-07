@@ -1,12 +1,14 @@
 const postModel = require("../models/postModel");
 const userModel = require("../models/userModels");
+const { post } = require("../routes/postRoutes");
 
 // POST
 module.exports.getAllPost = (req, res) => {
   postModel
     .find()
     .then((post) => res.status(200).json(post))
-    .catch((err) => res.status(500).json({ err }));
+    .catch((err) => res.status(500).json({ err }))
+    .sort({ createdAt: -1 });
 };
 
 module.exports.getOnePost = (req, res) => {
@@ -101,8 +103,39 @@ module.exports.unlikeOnePost = (req, res) => {
 
 // COMMENTS
 
-module.exports.createComment = (req, res) => {};
+module.exports.createComment = (req, res) => {
+  postModel
+    .findByIdAndUpdate(
+      req.params.id,
+      {
+        $push: {
+          comments: {
+            commenterId: req.body.commenterId,
+            commenterPseudo: req.body.commenterPseudo,
+            text: req.body.text,
+            timestamp: new Date().getTime(),
+          },
+        },
+      },
+      { new: true }
+    )
+    .then((comment) => res.status(200).json(comment))
+    .catch((err) => res.status(500).json(err));
+};
 
-module.exports.modifyOneComment = (req, res) => {};
-
-module.exports.deleteOneComment = (req, res) => {};
+module.exports.deleteOneComment = (req, res) => {
+  postModel
+    .findByIdAndUpdate(
+      req.params.id,
+      {
+        $pull: {
+          comments: {
+            _id: req.body.commentId,
+          },
+        },
+      },
+      { new: true }
+    )
+    .then(() => res.status(200).json("Comment deleted !"))
+    .catch((err) => res.status(500).json({ err }));
+};
