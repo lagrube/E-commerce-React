@@ -12,6 +12,7 @@ const { checkUser, requireAuth } = require("./middleware/authMiddleware");
 
 // Routes
 const userRoutes = require("./routes/userRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 // Express
 const app = express();
@@ -40,7 +41,7 @@ app.get("/jwtid", requireAuth, (req, res) => {
 
 // Routes
 app.use("/api/user", userRoutes);
-// app.use("/api/post", postRoutes);
+app.use("/api/post", postRoutes);
 
 // Server
 app.listen(process.env.PORT, () => {
