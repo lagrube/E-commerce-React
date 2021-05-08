@@ -34,6 +34,7 @@ module.exports.uploadProfil = async (req, res) => {
       { picture: "./uploads/profil/" + fileName },
       { new: true, upsert: true }
     )
+    .select("-password")
     .then((upload) => res.status(200).json(upload))
     .catch((err) => res.status(500).json({ err }));
 };

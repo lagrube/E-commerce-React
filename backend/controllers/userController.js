@@ -17,7 +17,7 @@ module.exports.getOneUser = (req, res) => {
 };
 
 module.exports.modifyOneUser = (req, res) => {
-  const { picture, bio } = req.body;
+  const { bio } = req.body;
   userModel
     .findByIdAndUpdate(req.params.id, { bio }, { new: true, upsert: true })
     .then((userModified) => res.status(200).json({ userModified }))
