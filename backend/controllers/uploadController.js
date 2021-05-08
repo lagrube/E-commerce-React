@@ -24,7 +24,7 @@ module.exports.uploadProfil = async (req, res) => {
   await pipeline(
     req.file.stream,
     fs.createWriteStream(
-      `${__dirname}/../../frontend/uploads/profil/${fileName}`
+      `${__dirname}/../../frontend/public/uploads/profil/${fileName}`
     )
   );
 
