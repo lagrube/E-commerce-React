@@ -1,6 +1,9 @@
 const postModel = require("../models/postModel");
 const userModel = require("../models/userModels");
-const { post } = require("../routes/postRoutes");
+const { uploadErrors } = require("../utils/errors");
+const fs = require("fs");
+const { promisify } = require("util");
+const pipeline = promisify(require("stream").pipeline);
 
 // POST
 module.exports.getAllPost = (req, res) => {
@@ -18,12 +21,40 @@ module.exports.getOnePost = (req, res) => {
     .catch((err) => res.status(500).json(err));
 };
 
-module.exports.createPost = (req, res) => {
+module.exports.createPost = async (req, res) => {
   const { posterId, message, vidéo } = req.body;
+
+  let fileName;
+
+  if (req.file) {
+    try {
+      if (
+        req.file.detectedMimeType != "image/jpg" &&
+        req.file.detectedMimeType != "image/jpeg" &&
+        req.file.detectedMimeType != "image/png"
+      )
+        throw Error("invalid file");
+
+      if (req.file.size > 500000) throw Error("max size");
+    } catch (err) {
+      const errors = uploadErrors(err);
+      return res.status(401).json({ errors });
+    }
+
+    fileName = req.body.posterId + Date.now() + ".jpg";
+
+    await pipeline(
+      req.file.stream,
+      fs.createWriteStream(
+        `${__dirname}/../../frontend/uploads/posts/${fileName}`
+      )
+    );
+  }
 
   const newPost = new postModel({
     posterId,
     message,
+    picture: req.file !== null ? "./uploads/posts/" + fileName : "",
     vidéo,
     likers: [],
     comments: [],
@@ -31,7 +62,7 @@ module.exports.createPost = (req, res) => {
 
   newPost
     .save()
-    .then((post) => res.status(200).json("Post created !", post))
+    .then((post) => res.status(200).json(post))
     .catch((err) => res.status(500).json(err));
 };
 
@@ -44,7 +75,7 @@ module.exports.modifyOnePost = (req, res) => {
       { message },
       { new: true, upsert: true, setDefaultsOnInsert: true }
     )
-    .then((post) => res.status(200).json("Post modified !", post))
+    .then((post) => res.status(200).json(post))
     .catch((err) => res.status(500).json({ err }));
 };
 

@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const postController = require("../controllers/postController");
+const multer = require("multer");
+const upload = multer();
 
-// Routes post
+// Post
 router.get("/", postController.getAllPost);
 router.get("/:id", postController.getOnePost);
-router.post("/", postController.createPost);
+router.post("/", upload.single("file"), postController.createPost);
 router.put("/:id", postController.modifyOnePost);
 router.delete("/:id", postController.deleteOnePost);
 

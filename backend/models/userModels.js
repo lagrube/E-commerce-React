@@ -49,14 +49,14 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Bcrypt Password
+// Code Bcrypt Password
 userSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
-// Decoded Bcrypt Password
+// Decode Bcrypt Password
 userSchema.statics.login = async function (email, password) {
   const user = await this.findOne({ email });
   if (user) {
