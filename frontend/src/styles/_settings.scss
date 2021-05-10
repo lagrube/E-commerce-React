@@ -1,0 +1,31 @@
+$grey: rgb(77, 77, 77);
+$grey-light: rgba(233, 233, 233, 0.507);
+$orange: rgba(216, 49, 37, 0.966);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+input[type="email"],
+input[type="password"] {
+  margin-top: 10px;
+  background-color: $grey-light;
+  padding: 15px;
+  width: 350px;
+  border-radius: 40px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+.success {
+  color: green;
+  font-weight: bold;
+}

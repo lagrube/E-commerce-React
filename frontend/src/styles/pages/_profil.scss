@@ -1,0 +1,94 @@
+.profil-page {
+  height: 100vh;
+  .log-container {
+    display: flex;
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    .connection-form {
+      margin-top: 50vh;
+      transform: translateY(-50%);
+      width: 50%;
+      height: 100vh;
+      .logo-log {
+        text-align: center;
+        img {
+          margin-top: 20px;
+          margin-bottom: 20px;
+          width: 100px;
+        }
+      }
+      h2 {
+        border-top: 1px solid rgb(218, 218, 218);
+        padding-top: 40px;
+        text-align: center;
+        text-transform: uppercase;
+        color: $grey;
+        letter-spacing: 2px;
+      }
+      #sign-up-form {
+        margin-top: 30px;
+        text-align: center;
+        border-bottom: 1px solid rgb(218, 218, 218);
+        padding-bottom: 40px;
+        :nth-child(1) {
+          font-weight: bold;
+          position: relative;
+          right: 150px;
+        }
+        :nth-child(6) {
+          font-weight: bold;
+          position: relative;
+          right: 130px;
+        }
+        input[type="submit"] {
+          margin-top: 20px;
+          text-transform: uppercase;
+          background-color: $orange;
+          font-weight: bold;
+          color: white;
+          padding: 15px;
+          width: 200px;
+          border-radius: 40px;
+          letter-spacing: 2px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .form-signup {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .account {
+          font-weight: bold;
+          color: $grey;
+          text-transform: uppercase;
+          font-size: 0.8rem;
+        }
+        .signup {
+          background-color: $grey-light;
+          padding: 15px;
+          border-radius: 30px;
+          text-transform: uppercase;
+          color: $grey;
+          font-size: 0.8rem;
+          font-weight: bold;
+          letter-spacing: 1px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .img-container {
+      img {
+        margin-top: 50vh;
+        transform: translateY(-50%);
+        width: 350px;
+      }
+    }
+  }
+}

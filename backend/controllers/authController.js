@@ -19,7 +19,7 @@ module.exports.signup = async (req, res) => {
     .then(() => res.status(200).json("User created !"))
     .catch((err) => {
       const errors = signupErrors(err);
-      res.status(400).json({ errors });
+      res.status(200).json({ errors });
     });
 };
 
@@ -60,7 +60,7 @@ module.exports.login = async (req, res) => {
     res.status(200).json({ user: user._id });
   } catch (err) {
     const errors = signinErrors(err);
-    res.status(400).json({ errors });
+    res.status(200).json({ errors });
   }
 };
 
