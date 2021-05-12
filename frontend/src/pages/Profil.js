@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UidContext } from "../components/AppContext";
 import Log from "../components/Log/index";
+import Navbar from "../components/Navbar";
 
 const Profil = () => {
   const uid = useContext(UidContext);
@@ -8,7 +9,10 @@ const Profil = () => {
   return (
     <div className="profil-page">
       {uid ? (
-        <h1>UPDATE PROFIL</h1>
+        <>
+          <Navbar />
+          <h1>UPDATE PROFIL</h1>
+        </>
       ) : (
         <div className="log-container">
           <Log />

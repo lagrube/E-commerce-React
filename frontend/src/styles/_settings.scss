@@ -11,6 +11,10 @@ $orange: rgba(216, 49, 37, 0.966);
   border: none;
   outline: none;
 }
+body {
+  width: 90%;
+  margin: auto;
+}
 
 input[type="email"],
 input[type="password"],

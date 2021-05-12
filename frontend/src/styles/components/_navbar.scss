@@ -1,0 +1,41 @@
+nav {
+  height: 40px;
+  margin: auto;
+  border-bottom: 1px $orange solid;
+  box-shadow: $grey-light 0px 5px 5px 0px;
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    .logo {
+      display: flex;
+      align-items: center;
+      h3 {
+        color: $grey;
+        .orange {
+          color: $orange;
+        }
+      }
+    }
+    img {
+      width: 38px;
+      margin-right: 30px;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        margin-left: 30px;
+        img {
+          width: 35px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        h4 {
+          color: black;
+        }
+      }
+    }
+  }
+}

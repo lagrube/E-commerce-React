@@ -12,7 +12,7 @@ module.exports.getOneUser = (req, res) => {
   userModel
     .findById(req.params.id)
     .select("-password")
-    .then((user) => res.status(200).json({ user }))
+    .then((user) => res.status(200).json(user))
     .catch((err) => res.status(401).send("ID unknow :" + err));
 };
 
