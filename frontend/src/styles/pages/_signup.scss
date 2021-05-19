@@ -1,8 +1,8 @@
 #sign-up-form {
   margin-top: 30px;
   text-align: center;
-  border-bottom: 1px solid rgb(218, 218, 218);
-  padding-bottom: 40px;
+  // border-bottom: 1px solid rgb(218, 218, 218);
+  // padding-bottom: 40px;
   input[type="submit"] {
     margin-top: 20px;
     text-transform: uppercase;
@@ -34,6 +34,6 @@
   }
   :nth-child(16) {
     position: relative;
-    right: 88px;
+    right: 86px;
   }
 }

@@ -9,7 +9,7 @@ const Log = () => {
   return (
     <div className="connection-form">
       <div className="logo-log">
-        <img src="./img/logo-log.svg" alt="log" />
+        <img src="./img/icons/logo-log.svg" alt="log" />
       </div>
       <SignInForm />
       <div className="form-signup">

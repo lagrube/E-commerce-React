@@ -54,7 +54,7 @@ const SignUpForm = () => {
         <>
           <SignInForm />
           <h4 className="success">
-            Enregistrement réussi, veuillez vous connecter
+            Enregistrement réussi, veuillez vous connecter.
           </h4>
         </>
       ) : (

@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <polyline points="5 12 3 12 12 3 21 12 19 12" />
-  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#231f20" d="M13.85,7.6,13,6.77l0,0L8.35,2.15a.48.48,0,0,0-.7,0L3,6.72l0,0-.83.82a.5.5,0,1,0,.7.71v5.2a.5.5,0,0,0,.5.5h9.29a.5.5,0,0,0,.5-.5V8.3h0a.52.52,0,0,0,.35.14.51.51,0,0,0,.36-.15A.49.49,0,0,0,13.85,7.6ZM6.38,13V8.92h3V13Zm5.76,0H10.4V8.42a.51.51,0,0,0-.5-.5h-4a.51.51,0,0,0-.5.5V13H3.85V7.31L8,3.2l4.14,4.11Z" data-name="Layer 2"/></svg>

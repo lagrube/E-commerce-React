@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UidContext } from "../components/AppContext";
 import Log from "../components/Log/index";
 import Navbar from "../components/Navbar";
+import UpdateProfil from "../components/Profil/UpdateProfil";
 
 const Profil = () => {
   const uid = useContext(UidContext);
@@ -10,14 +11,16 @@ const Profil = () => {
     <div className="profil-page">
       {uid ? (
         <>
-          <Navbar />
-          <h1>UPDATE PROFIL</h1>
+          <div className="nav-container">
+            <Navbar />
+          </div>
+          <UpdateProfil />
         </>
       ) : (
         <div className="log-container">
           <Log />
           <div className="img-container">
-            <img src="./img/tennis-slam.svg" alt="log" />
+            <img src="./img/icons/tennis-slam.svg" alt="log" />
           </div>
         </div>
       )}

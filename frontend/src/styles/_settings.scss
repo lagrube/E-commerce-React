@@ -1,6 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,600&display=swap");
+
 $grey: rgb(77, 77, 77);
 $grey-light: rgba(233, 233, 233, 0.507);
 $orange: rgba(216, 49, 37, 0.966);
+$orange-low: rgba(216, 49, 37, 0.233);
+$blue-light: rgb(69, 138, 228);
+$orange-light: rgb(223, 175, 169);
+
+$twentypixel: 20px;
 
 * {
   margin: 0;
@@ -12,9 +19,12 @@ $orange: rgba(216, 49, 37, 0.966);
   outline: none;
 }
 body {
-  width: 90%;
+  font-family: "Lora", serif;
+  width: 100%;
   margin: auto;
 }
+
+// Signup / Signin
 
 input[type="email"],
 input[type="password"],
@@ -51,4 +61,14 @@ input[type="text"] {
   font-weight: bold;
   margin-top: 20px;
   text-align: center;
+}
+
+//  End Signin / Signup
+
+li {
+  cursor: pointer;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

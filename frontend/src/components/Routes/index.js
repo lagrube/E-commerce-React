@@ -8,7 +8,8 @@ import {
 import Home from "../../pages/Home";
 import Profil from "../../pages/Profil";
 import SignUp from "../../pages/SignUp";
-import Trending from "../../pages/Trending";
+import Shop from "../../pages/Shop";
+import Social from "../../pages/Social";
 
 const index = () => {
   return (
@@ -18,7 +19,8 @@ const index = () => {
           <Route path="/" exact component={Home} />
           <Route path="/profil" component={Profil} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/trending" component={Trending} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/social" component={Social} />
           <Redirect to="/" />
         </Switch>
       </Router>

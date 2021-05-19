@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { UidContext } from "./AppContext";
 import { NavLink } from "react-router-dom";
@@ -10,39 +10,65 @@ const Navbar = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
 
+  const [toggle, setToggle] = useState(false);
+
+  // Show Sidebar
+  const show = () => {
+    setToggle(!toggle);
+  };
+
+  // Remove Sidebar
+  // const remove = () => {
+  //   setToggle(false);
+  // };
+
   return (
-    <nav>
-      <div className="nav-container">
-        <div className="logo">
-          <NavLink exact to="/">
-            <div className="logo">
-              <img src="./img/elite-tennis.jpeg" alt="icon-tennis" />
-              <h3>
-                Elite<span className="orange">Tennis</span>
-              </h3>
+    <>
+      {uid ? (
+        <>
+          <div id="sidebar" className={`${toggle ? "active-nav" : ""}`}>
+            <div className="toggle-btn" id="toggle-btn" onClick={show}>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
+
+            <ul>
+              <li>
+                <NavLink exact to="/" activeClassName="active">
+                  Accueil
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/social" activeClassName="active">
+                  Social
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/shop" activeClassName="active">
+                  Shop
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <NavLink to="/profil">
+            <li className="user">
+              <p className="invisible">Bonjour {userData.pseudo}</p>
+              <img src="./img/icons/user.svg" alt="" />
+            </li>
           </NavLink>
+          <Logout />
+        </>
+      ) : (
+        <div className="home-login">
+          <li>
+            <NavLink exact to="/profil">
+              <img src="./img/icons/login.svg" alt="login" />
+            </NavLink>
+          </li>
         </div>
-        {uid ? (
-          <ul>
-            <li className="welcome">
-              <NavLink to="/profil">
-                <h4>Bienvenue {userData.pseudo}</h4>
-              </NavLink>
-            </li>
-            <Logout />
-          </ul>
-        ) : (
-          <ul>
-            <li>
-              <NavLink exact to="/profil">
-                <img src="./img/icons/login.svg" alt="login" />
-              </NavLink>
-            </li>
-          </ul>
-        )}
-      </div>
-    </nav>
+      )}
+    </>
   );
 };
 
