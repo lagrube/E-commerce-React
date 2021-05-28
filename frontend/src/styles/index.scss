@@ -1,10 +1,8 @@
 @import "./settings";
 
-@import "./mixin/mixin.left.navbar";
-
 @import "./components/_navbar";
 @import "./components/_left.navbar";
-
+@import "./components/_update.profil";
 @import "./pages/home";
 @import "./pages/profil";
 @import "./pages/signup";

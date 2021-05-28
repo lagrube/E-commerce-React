@@ -8,7 +8,7 @@ const Log = () => {
 
   return (
     <div className="connection-form">
-      <div className="logo-log">
+      <div className="logo-log display-none">
         <img src="./img/icons/logo-log.svg" alt="log" />
       </div>
       <SignInForm />

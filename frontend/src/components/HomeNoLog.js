@@ -6,14 +6,14 @@ const HomeNoLog = () => {
       <div className="home-header">
         <img src="./img/tennis-home.jpeg" alt="home-logo" />
         <div className="home-header__title">
-          <h1>Bienvenue</h1>
+          <h1 className="home-title">Bienvenue</h1>
         </div>
       </div>
       <div className="main-content">
         <div className="scroll-icon-container">
           <img src="./img/icons/arrow-down.svg" alt="arrow-down" />
         </div>
-        <h2>Qui suis-je ?</h2>
+        <h2 className="content-title">Qui suis-je ?</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias,
           aperiam. Ipsa cupiditate rerum doloremque. Reiciendis quae ipsum quas
@@ -27,7 +27,7 @@ const HomeNoLog = () => {
           ut veniam nisi sed perspiciatis tempore aperiam sequi! Fugiat
           asperiores tempora eos qui facilis error deleniti.
         </p>
-        <h2>Présentation du site</h2>
+        <h2 className="content-title">Présentation du site</h2>
         <p>Explication connextion etc</p>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, rerum

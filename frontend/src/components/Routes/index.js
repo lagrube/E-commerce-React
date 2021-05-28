@@ -13,7 +13,7 @@ import Social from "../../pages/Social";
 
 const index = () => {
   return (
-    <div>
+    <>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -24,7 +24,7 @@ const index = () => {
           <Redirect to="/" />
         </Switch>
       </Router>
-    </div>
+    </>
   );
 };
 

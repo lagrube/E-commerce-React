@@ -11,7 +11,7 @@ const Profil = () => {
     <div className="profil-page">
       {uid ? (
         <>
-          <div className="nav-container">
+          <div id="nav-container">
             <Navbar />
           </div>
           <UpdateProfil />
@@ -19,7 +19,7 @@ const Profil = () => {
       ) : (
         <div className="log-container">
           <Log />
-          <div className="img-container">
+          <div className="img-container display-none">
             <img src="./img/icons/tennis-slam.svg" alt="log" />
           </div>
         </div>

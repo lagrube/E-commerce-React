@@ -75,15 +75,6 @@
   }
 }
 
-// .caption {
-//   position: absolute;
-//   bottom: 1rem;
-//   right: 1rem;
-//   color: white;
-//   z-index: 2;
-//   font-size: 0.6rem;
-// }
-
 .main-content {
   position: relative;
   margin: 0 auto;
@@ -118,20 +109,9 @@
   }
 }
 
-h1 {
+.home-title {
   font-size: calc(0.5rem + 8vmin);
-  font-weight: 600;
-  font-style: italic;
 }
-
-h2 {
+.content-title {
   font-size: calc(0.8rem + 4vmin);
-  font-weight: 600;
-  font-style: italic;
-  line-height: 1.2;
-}
-
-p {
-  font-size: calc(0.8rem + 1.25vmin);
-  line-height: 1.65;
 }
