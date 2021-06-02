@@ -53,7 +53,9 @@ const Navbar = () => {
           </div>
           <NavLink to="/profil">
             <li className="user">
-              <p className="display-none">Bonjour {userData.pseudo}</p>
+              <p className="display-none">
+                Bonjour <span>{userData.pseudo}</span>
+              </p>
               <img src="./img/icons/user.svg" alt="" />
             </li>
           </NavLink>

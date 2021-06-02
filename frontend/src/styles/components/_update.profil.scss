@@ -3,14 +3,17 @@
     margin-bottom: 20px;
   }
   .update-container {
-    width: 80%;
+    width: 85%;
     margin: auto;
 
     // Tablette
     @media screen and (min-width: 600px) and (max-width: 999px) {
+      h3 {
+        margin-bottom: 32px;
+      }
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 220px 1fr;
+      grid-template-rows: 195px 1fr;
       grid-template-areas:
         "L M"
         "L R";
@@ -21,6 +24,9 @@
     }
     // PC
     @media screen and (min-width: 1000px) {
+      h3 {
+        margin-bottom: 32px;
+      }
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-areas: "L M R";
@@ -31,12 +37,41 @@
     }
     // Mobile
     @media screen and(max-width: 599px) {
+      h3 {
+        margin-bottom: 12px;
+      }
       display: flex;
       flex-direction: column;
       align-items: center;
+      label,
+      button {
+        width: 250px !important;
+        margin: auto;
+      }
+    }
+    @media screen and(max-width: 400px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      label,
+      button {
+        width: 180px !important;
+        margin: auto;
+      }
     }
     .left-part {
       text-align: center;
+      @media screen and(max-width: 599px) {
+        margin-bottom: 20px;
+      }
+      @media screen and(max-width: 999px) and (min-width: 600px) {
+        label {
+          transform: translate(-50%, 19%) !important;
+        }
+        .translate-input {
+          transform: translate(-50%, -50%) !important;
+        }
+      }
       img {
         height: 180px;
         width: 180px;
@@ -86,6 +121,10 @@
     }
     .middle-part {
       text-align: center;
+      margin-bottom: 20px;
+      @media screen and(max-width: 599px) {
+        margin-bottom: 20px;
+      }
       p,
       textarea {
         width: 230px;
@@ -140,9 +179,229 @@
     }
     .right-part {
       text-align: center;
+      display: grid;
+      @media screen and (min-width: 1000px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr 1fr 1fr;
+        grid-template-areas:
+          "Title"
+          "Follower"
+          "Following"
+          "Post";
+        h4 {
+          grid-area: Title;
+        }
+        button {
+          background: $blue-low;
+          color: white;
+          margin-top: 10px;
+          padding: 1px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+        }
+        :nth-child(2) {
+          position: relative;
+          left: 5%;
+          transform: scale(1);
+          animation: bubble-followers 6s infinite alternate;
+        }
+        :nth-child(3) {
+          position: relative;
+          left: 22%;
+          top: 17%;
+          transform: scale(1);
+          animation: bubble-followings 4s infinite alternate;
+        }
+        :nth-child(4) {
+          position: relative;
+          bottom: 165%;
+          left: 60%;
+          transform: scale(1);
+          animation: bubble-posts 8s infinite alternate;
+        }
+        @keyframes bubble-followers {
+          70% {
+            background-color: $blue-low;
+          }
+          100% {
+            transform: scale(1.2);
+            background-color: $blue;
+          }
+        }
+        @keyframes bubble-followings {
+          70% {
+            background-color: $blue-low;
+          }
+          100% {
+            transform: scale(1.1);
+            background-color: $blue;
+          }
+        }
+        @keyframes bubble-posts {
+          70% {
+            background-color: $blue-low;
+          }
+          100% {
+            transform: scale(1.4);
+            background-color: $blue;
+          }
+        }
+      }
+      @media screen and (min-width: 600px) and (max-width: 999px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50px 100px;
+        grid-template-areas:
+          "T T T"
+          "Follower Following Post";
+        h4 {
+          grid-area: T;
+          padding-top: 20px;
+        }
+        button {
+          background: $blue;
+          display: block;
+          width: 100px;
+          height: 100px;
+          margin: auto;
+          color: white;
+          padding: 5px;
+          border-radius: 50%;
+        }
+      }
+      @media screen and (max-width: 599px) {
+        margin-bottom: 20px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px 1fr 1fr 1fr;
+        grid-template-areas:
+          "Title"
+          "Follower"
+          "Following"
+          "Post";
+        h4 {
+          grid-area: Title;
+        }
+        button {
+          background: $blue;
+          color: white;
+          margin-top: 10px;
+          padding: 6px;
+          border-radius: 10px;
+        }
+      }
     }
   }
-  h3 {
-    margin-bottom: 12px;
+  .popup-profil-container {
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: fixed;
+    animation: popup 1s forwards;
+
+    @keyframes popup {
+      to {
+        backdrop-filter: blur(2px);
+      }
+    }
+
+    .modal {
+      position: absolute;
+      top: 14%;
+      left: 50%;
+      transform: translate(-100%);
+      background: $blue-low-2;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 2px rgba(131, 130, 130, 0.356);
+      overflow: auto;
+      transform: scaleY(0);
+      transform-origin: center;
+      animation: modal 0.5s forwards;
+      @media screen and(max-width: 500px) {
+        width: 90%;
+        min-width: 288px;
+        margin: auto;
+      }
+
+      h3 {
+        min-width: 200px;
+        color: white;
+      }
+
+      @keyframes modal {
+        to {
+          transform: scale(1) translate(-50%);
+        }
+      }
+
+      .cross {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        transition: 0.1s;
+        cursor: pointer;
+        padding: 2px 5px;
+        color: white;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+
+      ul {
+        margin: 20px 0 0;
+        max-height: 500px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+        &::-webkit-scrollbar-track {
+          background: white;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: red;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+
+        li {
+          display: grid;
+          grid-template-columns: 64px 1fr 114px;
+          align-items: center;
+          margin: 10px 0;
+          color: white;
+          img {
+            height: 50px;
+            width: 50px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 2px rgba(51, 51, 51, 0.376);
+          }
+          h4 {
+            text-align: left;
+            min-width: 210px;
+          }
+          .follow-handler {
+            text-align: left;
+
+            button {
+              // background: $color-4;
+              border-radius: 20px;
+              margin-right: 6px;
+
+              &:hover {
+                // color: $color-3;
+                transform: translateX(2px);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

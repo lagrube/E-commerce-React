@@ -1,10 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,600&display=swap");
 
 $grey: rgb(77, 77, 77);
+$grey-low: rgb(218, 218, 218);
 $grey-light: rgba(233, 233, 233, 0.507);
 $orange: rgba(216, 49, 37, 0.966);
 $orange-low: rgba(216, 49, 37, 0.233);
+$blue-darkstate: rgb(30, 26, 58);
+$blue-darkstate-low: rgba(42, 36, 82, 0.692);
+$blue: rgb(48, 96, 160);
+$blue-low-2: rgba(48, 96, 160, 0.925);
 $blue-light: rgb(69, 138, 228);
+$blue-low: rgba(69, 138, 228, 0.575);
 $orange-light: rgb(223, 175, 169);
 
 $twentypixel: 20px;
@@ -23,6 +29,7 @@ body {
   width: 100%;
   margin: auto;
   min-width: 320px;
+  max-width: 1600px;
 }
 
 // Signup / Signin
@@ -51,7 +58,7 @@ input[type="text"] {
     -webkit-text-fill-color: black !important;
   }
 
-  @media screen and(max-width:700px) {
+  @media screen and(max-width:750px) {
     width: 250px;
   }
 }
@@ -112,7 +119,7 @@ label {
   display: none;
 }
 .display-none {
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 650px) {
     display: none;
   }
 }

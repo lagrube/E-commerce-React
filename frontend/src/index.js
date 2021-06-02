@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./styles/index.scss";
+import { getUsers } from "./actions/users.actions";
 
 // Redux
 import { Provider } from "react-redux";
@@ -19,6 +20,8 @@ const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+store.dispatch(getUsers());
 
 ReactDOM.render(
   <Provider store={store}>
