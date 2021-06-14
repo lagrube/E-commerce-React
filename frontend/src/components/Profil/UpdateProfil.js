@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../../actions/posts.actions";
+// import { getPosts } from "../../actions/posts.actions";
 import { updateBio } from "../../actions/user.actions";
 import LeftNavbar from "../LeftNavbar";
-import { dateParser } from "../Utils";
+import { dateParser, isEmpty } from "../Utils";
 import FollowHandler from "./FollowHandler";
 import UploadImg from "./UploadImg";
 
 const UpdateProfil = () => {
   const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
+  const usersPost = useSelector((state) => state.postsReducer);
+
   const [bio, setBio] = useState("");
   const [updateForm, setUpdateForm] = useState(false);
   const [followingPopup, setFollowingPopup] = useState(false);
   const [followerPopup, setFollowerPopup] = useState(false);
+  const [uploadUserPost, setUploadUserPost] = useState();
+  const [userPosts, setUserPosts] = useState(false);
+  const [loadPost, setLoadPost] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
   const dispatch = useDispatch();
 
   const handleUpdate = (e) => {
@@ -21,6 +30,28 @@ const UpdateProfil = () => {
     bio !== "" && dispatch(updateBio(userData._id, bio));
     setUpdateForm(false);
   };
+
+  useEffect(() => {
+    const userPost = [];
+
+    if (!isEmpty(usersPost[0])) {
+      usersPost.map((post) => {
+        if (post.posterId === userData._id) {
+          userPost.push(post);
+          console.log(userPost);
+          return setUploadUserPost(userPost);
+        }
+        return null;
+      });
+    }
+
+    if (loadPost) {
+      dispatch(getPosts());
+      setLoadPost(false);
+    }
+
+    !isEmpty(usersData[0]) && setIsLoading(false);
+  }, [userData._id, usersPost, loadPost, dispatch, usersData]);
 
   return (
     <main>
@@ -69,10 +100,10 @@ const UpdateProfil = () => {
               <br />
               {userData.following ? userData.following.length : "0"}
             </button>
-            <button>
+            <button onClick={() => setUserPosts(true)}>
               Post
               <br />
-              "0"
+              {uploadUserPost ? uploadUserPost.length : "0"}
             </button>
           </div>
         </div>
@@ -116,7 +147,7 @@ const UpdateProfil = () => {
                   for (let i = 0; i < userData.followers.length; i++) {
                     if (user._id === userData.followers[i]) {
                       return (
-                        <li key={user._id}>
+                        <li>
                           <img src={user.picture} alt="user-pic" />
                           <h4>{user.pseudo}</h4>
                           <div className="follow-handler">
@@ -129,6 +160,32 @@ const UpdateProfil = () => {
                   return null;
                 })}
               </ul>
+            </div>
+          </div>
+        )}
+        {userPosts && (
+          <div className="post-container">
+            <h2>Posts</h2>
+            <span className="cross" onClick={() => setUserPosts(false)}>
+              &#10005;
+            </span>
+            <div className="card-user-container">
+              {isLoading ? (
+                <i className="fas fa-spinner fa-spin"></i>
+              ) : (
+                <>
+                  {uploadUserPost.map((post) => {
+                    for (let i = 0; i < uploadUserPost.length; i++) {
+                      return (
+                        <div className="card-user" key={post._id}>
+                          <h3>{post.message}</h3>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
+                </>
+              )}
             </div>
           </div>
         )}

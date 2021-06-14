@@ -9,9 +9,9 @@ const pipeline = promisify(require("stream").pipeline);
 module.exports.getAllPost = (req, res) => {
   postModel
     .find()
+    .sort({ createdAt: -1 })
     .then((post) => res.status(200).json(post))
-    .catch((err) => res.status(500).json({ err }))
-    .sort({ createdAt: -1 });
+    .catch((err) => res.status(500).json({ err }));
 };
 
 module.exports.getOnePost = (req, res) => {
@@ -54,7 +54,7 @@ module.exports.createPost = async (req, res) => {
   const newPost = new postModel({
     posterId,
     message,
-    picture: req.file !== null ? "./uploads/posts/" + fileName : "",
+    picture: req.file !== undefined ? "./uploads/posts/" + fileName : "",
     vidéo,
     likers: [],
     comments: [],

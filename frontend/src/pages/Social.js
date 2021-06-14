@@ -3,6 +3,7 @@ import Home from "./Home";
 import { UidContext } from "../components/AppContext";
 import Navbar from "../components/Navbar";
 import LeftNavbar from "../components/LeftNavbar";
+import Thread from "../components/Thread";
 
 const Social = () => {
   const uid = useContext(UidContext);
@@ -17,7 +18,7 @@ const Social = () => {
           </header>
           <main>
             <LeftNavbar />
-            <div className="reseau">Réseau Social</div>
+            <Thread />
           </main>
         </>
       ) : (
