@@ -8,12 +8,14 @@ const Profil = () => {
   const uid = useContext(UidContext);
 
   return (
-    <div className="profil-page">
+    <>
       {uid ? (
         <>
-          <div id="nav-container">
-            <Navbar />
-          </div>
+          <header>
+            <div id="nav-container">
+              <Navbar />
+            </div>
+          </header>
           <UpdateProfil />
         </>
       ) : (
@@ -24,7 +26,7 @@ const Profil = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

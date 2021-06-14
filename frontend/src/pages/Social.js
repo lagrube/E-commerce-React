@@ -7,19 +7,23 @@ import LeftNavbar from "../components/LeftNavbar";
 const Social = () => {
   const uid = useContext(UidContext);
   return (
-    <div>
+    <>
       {uid ? (
         <>
-          <div id="nav-container">
-            <Navbar />
-          </div>
-          <LeftNavbar />
-          <div className="reseau">Réseau Social</div>
+          <header>
+            <div id="nav-container">
+              <Navbar />
+            </div>
+          </header>
+          <main>
+            <LeftNavbar />
+            <div className="reseau">Réseau Social</div>
+          </main>
         </>
       ) : (
         <Home />
       )}
-    </div>
+    </>
   );
 };
 

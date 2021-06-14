@@ -10,11 +10,15 @@ const Shop = () => {
     <>
       {uid ? (
         <>
-          <div id="nav-container">
-            <Navbar />
-          </div>
-          <LeftNavbar />
-          <div className="reseau">Shopping</div>
+          <header>
+            <div id="nav-container">
+              <Navbar />
+            </div>
+          </header>
+          <main>
+            <LeftNavbar />
+            <div className="reseau">Shopping</div>
+          </main>
         </>
       ) : (
         <Home />

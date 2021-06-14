@@ -11,9 +11,11 @@ const Home = () => {
     <>
       {uid ? (
         <div className="home-container">
-          <div className="nav">
-            <Navbar />
-          </div>
+          <header>
+            <div className="nav">
+              <Navbar />
+            </div>
+          </header>
           <div className="home-header">
             <img src="./img/tennis-home.jpeg" alt="home-logo" />
             <div className="home-header__title">
@@ -61,9 +63,11 @@ const Home = () => {
         </div>
       ) : (
         <div className="home-container">
-          <div className="nav">
-            <Navbar />
-          </div>
+          <header>
+            <div className="nav">
+              <Navbar />
+            </div>
+          </header>
           <HomeNoLog />
         </div>
       )}
