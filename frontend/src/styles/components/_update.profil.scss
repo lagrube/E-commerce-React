@@ -101,7 +101,7 @@
         input[type="submit"] {
           font-size: 0.9rem;
           text-transform: uppercase;
-          background-color: $grey;
+          background-color: $grey-blue-dark;
           font-weight: bold;
           color: white;
           height: 36px;
@@ -169,7 +169,7 @@
       .save-bio {
         bottom: 24px;
         text-transform: uppercase;
-        background-color: $grey;
+        background-color: $grey-blue-dark;
         font-weight: bold;
         letter-spacing: 1px;
         @media screen and (min-width: 1000px) {
@@ -311,7 +311,7 @@
       top: 14%;
       left: 50%;
       transform: translate(-100%);
-      background: $blue-low-2;
+      background: $grey-blue-dark;
       padding: 25px;
       border-radius: 20px;
       box-shadow: 0 0 2px rgba(131, 130, 130, 0.356);
@@ -384,20 +384,32 @@
           }
           h4 {
             text-align: left;
-            min-width: 210px;
+            @media screen and (min-width: 500px) {
+              min-width: 210px;
+            }
+            @media screen and (max-width: 499px) {
+              min-width: 100px;
+            }
           }
           .follow-handler {
             text-align: left;
 
             button {
-              // background: $color-4;
+              padding: 8px 10px;
+              width: 70px;
               border-radius: 20px;
-              margin-right: 6px;
-
+              color: rgba(255, 255, 255, 0.89);
+              letter-spacing: 1px;
               &:hover {
-                // color: $color-3;
-                transform: translateX(2px);
+                font-weight: bold;
+                color: white;
               }
+            }
+            .follower {
+              background: $blue-darkstate;
+            }
+            .following {
+              background: $orange;
             }
           }
         }
