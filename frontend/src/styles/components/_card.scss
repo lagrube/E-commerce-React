@@ -11,7 +11,7 @@
   @media screen and(max-width: 590px) {
     grid-template-columns: 1fr;
   }
-  @media screen and(max-width: 440px) {
+  @media screen and(max-width: 500px) {
     padding-top: 26px;
   }
 
@@ -39,25 +39,24 @@
     }
     @media screen and(max-width: 590px) {
       position: absolute;
-      transform: translate(17px, 18px);
+      transform: translateY(18px);
     }
   }
 
   .card-right {
-    @media screen and(max-width: 590px) {
-      margin-left: 18px;
-    }
+    // @media screen and(max-width: 590px) {
+    //   margin-left: 18px;
+    // }
     .card-header {
       display: flex;
       justify-content: space-between;
-      margin: 2px 0 4px;
       min-height: 35px;
 
       @media screen and(max-width: 590px) {
         margin: 12px 0 14px;
       }
 
-      @media screen and(max-width: 440px) {
+      @media screen and(max-width: 500px) {
         flex-direction: column;
       }
 
@@ -67,14 +66,14 @@
         @media screen and(max-width: 590px) {
           margin-left: 52px;
         }
-        @media screen and(max-width: 440px) {
+        @media screen and(max-width: 500px) {
           transform: translateY(-18px);
         }
 
         span {
-          transform: translate(0px, -5px);
+          transform: translate(0px, -3px);
 
-          @media screen and(max-width: 440px) {
+          @media screen and(max-width: 500px) {
             margin: 0px 0 -10px;
             padding: 0;
           }
@@ -84,8 +83,8 @@
             cursor: pointer;
             transition: 0.15s;
             box-shadow: none;
-            height: 28px;
-            width: 28px;
+            height: 32px;
+            width: 32px;
 
             &:hover {
               transform: scale(1.2) translate(0px, 0px);
@@ -103,10 +102,59 @@
 
       span {
         font-style: italic;
+        color: $grey-low;
 
-        @media screen and(max-width: 440px) {
+        @media screen and(max-width: 500px) {
           transform: translate(52px, -20px);
         }
+      }
+    }
+    p {
+      font-size: 1.1rem;
+
+      @media screen and(max-width: 500px) {
+        margin-top: -18px;
+      }
+    }
+    .card-pic {
+      width: 100%;
+      max-height: 330px;
+      border-radius: 6px;
+      margin-top: 12px;
+      box-shadow: 0 0 3px rgba(51, 51, 51, 0.342);
+    }
+    iframe {
+      width: 100%;
+      min-height: 330px;
+      border-radius: 6px;
+      box-shadow: 0 0 3px rgba(51, 51, 51, 0.342);
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0 4px;
+
+    img {
+      height: 22px;
+      width: 22px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    .comment-icon,
+    .like-container {
+      display: flex;
+      align-items: center;
+
+      span {
+        font-size: 1.02rem;
+        margin-left: 10px;
       }
     }
   }

@@ -123,7 +123,10 @@ const UpdateProfil = () => {
                           <img src={user.picture} alt="user-pic" />
                           <h4>{user.pseudo}</h4>
                           <div className="follow-handler">
-                            <FollowHandler idToFollow={user._id} />
+                            <FollowHandler
+                              idToFollow={user._id}
+                              type={"suggestion"}
+                            />
                           </div>
                         </li>
                       );
@@ -151,7 +154,10 @@ const UpdateProfil = () => {
                           <img src={user.picture} alt="user-pic" />
                           <h4>{user.pseudo}</h4>
                           <div className="follow-handler">
-                            <FollowHandler idToFollow={user._id} />
+                            <FollowHandler
+                              idToFollow={user._id}
+                              type={"suggestion"}
+                            />
                           </div>
                         </li>
                       );
@@ -174,16 +180,20 @@ const UpdateProfil = () => {
                 <i className="fas fa-spinner fa-spin"></i>
               ) : (
                 <>
-                  {uploadUserPost.map((post) => {
-                    for (let i = 0; i < uploadUserPost.length; i++) {
-                      return (
-                        <div className="card-user" key={post._id}>
-                          <h3>{post.message}</h3>
-                        </div>
-                      );
-                    }
-                    return null;
-                  })}
+                  {uploadUserPost > 0 ? (
+                    uploadUserPost.map((post) => {
+                      for (let i = 0; i < uploadUserPost.length; i++) {
+                        return (
+                          <div className="card-user" key={post._id}>
+                            <h3>{post.message}</h3>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })
+                  ) : (
+                    <p>Vous n'avez aucun post</p>
+                  )}
                 </>
               )}
             </div>
