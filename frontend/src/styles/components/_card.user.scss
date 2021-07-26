@@ -18,19 +18,7 @@
     }
   }
   .card-user-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    .card-user {
-      margin: 10px;
-      border: 2px solid $blue-darkstate;
-      padding: 16px;
-      border-radius: 20px;
-      min-height: 100px;
-      display: flex;
-      h3 {
-        margin: auto;
-      }
-    }
+    width: 70%;
+    margin: auto;
   }
 }
