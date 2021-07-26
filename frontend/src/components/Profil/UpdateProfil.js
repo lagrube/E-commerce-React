@@ -180,7 +180,7 @@ const UpdateProfil = () => {
                 <i className="fas fa-spinner fa-spin"></i>
               ) : (
                 <>
-                  {uploadUserPost > 0 ? (
+                  {uploadUserPost.length > 0 ? (
                     uploadUserPost.map((post) => {
                       for (let i = 0; i < uploadUserPost.length; i++) {
                         return (
