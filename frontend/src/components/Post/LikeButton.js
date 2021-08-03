@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { likePost, unlikePost } from "../../actions/posts.actions";
 import { UidContext } from "../AppContext";
 
@@ -7,6 +7,7 @@ const LikeButton = ({ post }) => {
   const [liked, setLiked] = useState(false);
   const uid = useContext(UidContext);
   const dispatch = useDispatch();
+  const usersData = useSelector((state) => state.usersReducer);
 
   const like = () => {
     dispatch(likePost(post._id, uid));
@@ -22,7 +23,7 @@ const LikeButton = ({ post }) => {
     if (post.likers.includes(uid)) {
       setLiked(true);
     } else setLiked(false);
-  }, [uid, post.likers]);
+  }, [uid, post.likers, usersData]);
 
   return (
     <div className="like-container">
@@ -36,6 +37,7 @@ const LikeButton = ({ post }) => {
           alt="unliked"
         />
       )}
+      <span>{post.likers.length}</span>
     </div>
   );
 };
