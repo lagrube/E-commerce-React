@@ -10,7 +10,7 @@ mongoose
       useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false,
-    }
+    },
   )
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Error connexion", err));

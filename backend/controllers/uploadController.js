@@ -5,6 +5,8 @@ const { uploadErrors } = require("../utils/errors");
 const pipeline = promisify(require("stream").pipeline);
 
 module.exports.uploadProfil = async (req, res) => {
+  console.log(req.file);
+
   try {
     if (
       req.file.detectedMimeType != "image/jpg" &&
@@ -24,15 +26,15 @@ module.exports.uploadProfil = async (req, res) => {
   await pipeline(
     req.file.stream,
     fs.createWriteStream(
-      `${__dirname}/../../frontend/public/uploads/profil/${fileName}`
-    )
+      `${__dirname}/../../frontend/public/uploads/profil/${fileName}`,
+    ),
   );
 
   await userModel
     .findByIdAndUpdate(
       req.body.userId,
       { picture: "./uploads/profil/" + fileName },
-      { new: true, upsert: true }
+      { new: true, upsert: true },
     )
     .select("-password")
     .then((upload) => res.status(200).json(upload))
